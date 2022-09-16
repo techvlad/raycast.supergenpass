@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "supergenpass",
+  "title": "SuperGenPass",
+  "description": "Tool to generate passwords from master password",
+  "icon": "command-icon.png",
+  "author": "evilhex",
+  "categories": [
+    "Security",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "superpassgen",
+      "title": "SuperPassGen",
+      "subtitle": "Generate password",
+      "description": "Generates passwords using master password",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "1.39.3",
+    "supergenpass-lib": "3.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.20",
+    "prettier": "2.7.1",
+    "typescript": "4.8.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "prettier --write",
+    "lint": "prettier --check",
+    "publish": "ray publish"
+  }
+}
