@@ -1,20 +1,11 @@
-import { generate } from 'supergenpass-lib'
-
-type Options = {
-  hashRounds?: number
-  length?: number
-  method?: 'md5' | 'sha512'
-  passthrough?: boolean
-  removeSubdomains?: boolean
-  secret?: string
-}
+import { generate, GenerationOptions } from 'supergenpass-lib'
 
 export function generatePassword(
   masterPassword: string,
   uri: string,
-  options: Options = {}
+  options: GenerationOptions = {}
 ) {
-  return new Promise(resolve =>
-    generate(masterPassword, uri, options, resolve)
-  ) as Promise<string>
+  return new Promise<string>(resolve =>
+    generate(masterPassword, uri, options, password => resolve(password))
+  )
 }

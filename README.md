@@ -6,7 +6,7 @@ Tool to generate passwords from master password
 
 - [x] Format code
 - [x] Setup repo
-- [ ] Add typing
+- [x] Add typing
 - [ ] Add settings
 - [ ] Add tests
 - [ ] Make screenshot + publish
