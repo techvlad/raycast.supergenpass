@@ -8,7 +8,6 @@ Tool to generate passwords from master password
 - [x] Setup repo
 - [x] Add typing
 - [x] Add settings
-- [ ] Add error handler
-- [ ] Add tests
+- [x] Add error handler
 - [ ] Make screenshot + publish
 - [ ] Setup changelog

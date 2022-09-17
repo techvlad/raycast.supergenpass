@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Form, ActionPanel, Action, Clipboard } from '@raycast/api'
+import {
+  Form,
+  ActionPanel,
+  Action,
+  Clipboard,
+  showToast,
+  Toast,
+} from '@raycast/api'
 
 import { generatePassword } from './generatePassword'
 
@@ -8,11 +15,31 @@ export default function Command() {
   const [domain, setDomain] = useState('')
 
   async function copyPassword() {
-    await Clipboard.copy(await generatePassword(masterPassword, domain))
+    try {
+      await Clipboard.copy(await generatePassword(masterPassword, domain))
+    } catch (error) {
+      if (error instanceof Error) {
+        await showToast({
+          title: 'Unhandled exception has occurred',
+          message: error.message ?? '',
+          style: Toast.Style.Failure,
+        })
+      }
+    }
   }
 
   async function pastePassword() {
-    await Clipboard.paste(await generatePassword(masterPassword, domain))
+    try {
+      await Clipboard.paste(await generatePassword(masterPassword, domain))
+    } catch (error) {
+      if (error instanceof Error) {
+        await showToast({
+          title: 'Unhandled exception has occurred',
+          message: error.message ?? '',
+          style: Toast.Style.Failure,
+        })
+      }
+    }
   }
 
   return (
